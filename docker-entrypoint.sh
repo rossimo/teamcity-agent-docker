@@ -19,8 +19,8 @@ if [ ! -d "$AGENT_DIR/bin" ]; then
     chmod +x $AGENT_DIR/bin/agent.sh
     echo "serverUrl=${TEAMCITY_SERVER}" > $AGENT_DIR/conf/buildAgent.properties
 
-    if [ -n "$AUTH_TOKEN" ]; then echo "authorizationToken=${AUTH_TOKEN}" > $AGENT_DIR/conf/buildAgent.properties; fi
-    if [ -n "$NAME" ]; then echo "name=${NAME}" > $AGENT_DIR/conf/buildAgent.properties; fi
+    if [ -n "$AUTH_TOKEN" ]; then echo "authorizationToken=${AUTH_TOKEN}" >> $AGENT_DIR/conf/buildAgent.properties; fi
+    if [ -n "$NAME" ]; then echo "name=${NAME}" >> $AGENT_DIR/conf/buildAgent.properties; fi
 fi
 
 echo "Starting buildagent..."
