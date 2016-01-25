@@ -18,6 +18,9 @@ if [ ! -d "$AGENT_DIR/bin" ]; then
     wget $TEAMCITY_SERVER/update/buildAgent.zip && unzip -d $AGENT_DIR buildAgent.zip && rm buildAgent.zip
     chmod +x $AGENT_DIR/bin/agent.sh
     echo "serverUrl=${TEAMCITY_SERVER}" > $AGENT_DIR/conf/buildAgent.properties
+
+    if [ -n "$AUTH_TOKEN" ] echo "authorizationToken=${$AUTH_TOKEN}" > $AGENT_DIR/conf/buildAgent.properties
+    if [ -n "$NAME" ] echo "name=${$NAME}" > $AGENT_DIR/conf/buildAgent.properties
 fi
 
 echo "Starting buildagent..."
